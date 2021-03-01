@@ -24,10 +24,6 @@ const int offsetR = 1; //motorR direction offset
 Motor motorL = Motor(AIN1, AIN2, PWMA, offsetL, STBY);
 Motor motorR = Motor(BIN1, BIN2, PWMB, offsetR, STBY);
 
-RF24 radio(9,10);
-const uint64_t pipe_address = 0xc3de775240; 
-
-
 char* Data_Received = NULL;
 void Process_Data(char*);
 void setup() {
@@ -83,8 +79,8 @@ void Process_Data(char* Data)
     L_Speed -= X_Mapping;
     R_Speed += X_Mapping;
   }
-  constrain(L_Speed,0,255);
-  constrain(R_Speed,0,255);
+  L_Speed = constrain(L_Speed,0,255);
+  R_Speed =constrain(R_Speed,0,255);
 
   motorL.drive(L_Speed);
   motorR.drive(R_Speed);

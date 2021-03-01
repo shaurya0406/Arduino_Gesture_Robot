@@ -2,7 +2,7 @@
 
 ******************************************************************************/
 
-#include "MY_MOTORS.h"
+#include "MOTORS.h"
 #include <Arduino.h>
 Motor::Motor(int In1pin, int In2pin, int PWMpin, int offset, int STBYpin)
 {
